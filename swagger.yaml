@@ -1,13 +1,16 @@
 openapi: 3.0.0
 info:
-  title: Users API
+  title: API de Usuários
   version: 1.0.0
+
 servers:
-  - url: /api/v1
+  - url: /api/v1/users
+
 paths:
-  /users/register:
+  /registrar:
     post:
-      summary: Register a new user
+      summary: Registrar novo usuário
+      description: Cria um novo usuário no sistema.
       requestBody:
         required: true
         content:
@@ -15,23 +18,28 @@ paths:
             schema:
               type: object
               properties:
-                name:
+                nome:
                   type: string
+                  description: Nome do usuário
                 email:
                   type: string
-                password:
+                  description: E-mail do usuário
+                senha:
                   type: string
-              required: [name, email, password]
+                  description: Senha do usuário
+              required: [nome, email, senha]
       responses:
         201:
-          description: Created
+          description: Usuário criado com sucesso
         400:
-          description: Validation error
+          description: Erro de validação
         409:
-          description: Email already registered
-  /users/login:
+          description: E-mail já registrado
+
+  /login:
     post:
       summary: Login
+      description: Autentica um usuário e retorna um token JWT.
       requestBody:
         required: true
         content:
@@ -41,23 +49,26 @@ paths:
               properties:
                 email:
                   type: string
-                password:
+                senha:
                   type: string
-              required: [email, password]
+              required: [email, senha]
       responses:
         200:
-          description: OK
+          description: Login realizado
         401:
-          description: Invalid credentials
-  /users:
+          description: Credenciais inválidas
+
+  /:
     get:
-      summary: List users
+      summary: Listar usuários
+      description: Retorna todos os usuários cadastrados.
       responses:
         200:
-          description: OK
-  /users/{id}:
+          description: Lista de usuários
+
+  /{id}:
     get:
-      summary: Get user by id
+      summary: Buscar usuário por ID
       parameters:
         - name: id
           in: path
@@ -66,39 +77,59 @@ paths:
             type: string
       responses:
         200:
-          description: OK
+          description: Usuário encontrado
         404:
-          description: Not found
+          description: Usuário não encontrado
+
     put:
-      summary: Update user (requires JWT)
+      summary: Atualizar usuário
       security:
         - bearerAuth: []
       parameters:
         - name: id
           in: path
           required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              properties:
+                nome:
+                  type: string
+                email:
+                  type: string
+                senha:
+                  type: string
       responses:
         200:
-          description: OK
+          description: Usuário atualizado
         401:
-          description: Unauthorized
+          description: Não autorizado
+        404:
+          description: Usuário não encontrado
+
     delete:
-      summary: Delete user (requires JWT)
+      summary: Remover usuário
       security:
         - bearerAuth: []
       parameters:
         - name: id
           in: path
           required: true
+          schema:
+            type: string
       responses:
         204:
-          description: No content
+          description: Usuário removido
+        401:
+          description: Não autorizado
+        404:
+          description: Usuário não encontrado
+
 components:
   securitySchemes:
     bearerAuth:

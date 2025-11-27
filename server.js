@@ -6,9 +6,12 @@ const PORT = process.env.PORT || 3000;
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+    console.log('MongoDB conectado com sucesso.');
+    app.listen(PORT, () =>
+      console.log(`Servidor rodando em http://localhost:${PORT}`)
+    );
   })
   .catch((err) => {
-    console.error('Falha ao conectar no banco de dados', err);
+    console.error('Falha ao conectar no banco de dados:', err);
     process.exit(1);
   });

@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const usuarioController = require("../../controllers/userController");
+const usuarioController = require("../controllers/userController");
 const {
   registrarValidator,
   loginValidator,
   usuarioIdParam,
   atualizarValidator,
-} = require("../../validators/userValidator");
+} = require("../validators/userValidator");
 
-const auth = require("../../middlewares/auth");
+const auth = require("../middlewares/auth");
 
 router.post("/registrar", registrarValidator, usuarioController.registrar);
 router.post("/login", loginValidator, usuarioController.login);
