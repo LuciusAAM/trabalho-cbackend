@@ -6,9 +6,9 @@ const PORT = process.env.PORT || 3000;
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
   })
   .catch((err) => {
-    console.error('Failed to connect to DB', err);
+    console.error('Falha ao conectar no banco de dados', err);
     process.exit(1);
   });

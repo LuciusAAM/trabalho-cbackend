@@ -1,7 +1,7 @@
 {
   "name": "express-mongo-api",
   "version": "1.0.0",
-  "description": "RESTful API with Express, MongoDB and JWT authentication",
+  "description": "API RESTful com Express, MongoDB e autenticação JWT",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
