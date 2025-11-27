@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
@@ -21,8 +23,11 @@ app.use("/api/v1/users", userRoutes);
 app.get("/status", (req, res) => res.status(200).json({ status: "ok" }));
 
 // Swagger UI
-const swaggerDocument = YAML.load(path.join(__dirname, "swagger.yaml"));
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const swaggerUI = require("swagger-ui-express");
+
+const swaggerDocument = YAML.load("./swagger.yaml");
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Error handler
 app.use(errorHandler);

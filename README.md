@@ -1,39 +1,161 @@
-# Express + MongoDB REST API (Users)
+🚀 Projeto – API Node.js + Express + MongoDB (Atlas)
 
-## Overview
-API sample implementing CRUD operations for a `User` resource using Express, MongoDB (Mongoose), JWT authentication, input validation and tests.
+Este projeto é uma API RESTful construída com Node.js, Express, MongoDB Atlas e Mongoose, com autenticação JWT e documentação via Swagger UI.
+O objetivo é servir como base didática para estudos de backend.
 
-## Features
-- RESTful endpoints versioned at `/api/v1`
-- JWT-based authentication (protects write routes)
-- Input validation with `express-validator`
-- Swagger (OpenAPI) documentation available at `/api-docs`
-- Unit/integration tests using Jest + Supertest
+👥 Integrantes do Grupo
+Lucius Alves de Assis Marques - 2324290093 - Responsável pelo direcionamento, como Routes server e validators, também na correção des testes
+Caio Víctor de Almeida Aleixo - 2324290077 - Criação dos testes e auxiliação na correção
+Diego Alves - ~matricula~ - Criação dos middlewares, controllers e models, auxílo na produção de tests
 
-## Setup
-1. Clone the repository.
-2. Copy `.env.example` to `.env` and fill values.
-3. `npm install`
-4. `npm run dev` to start in dev mode.
+📌 Divisão de Tarefas
 
-## Run tests
-`npm test`
+Modelos (models) – responsável:
 
-## Endpoints (summary)
-- `POST /api/v1/users/register` — register
-- `POST /api/v1/users/login` — login (receive JWT)
-- `GET /api/v1/users` — list users
-- `GET /api/v1/users/:id` — get user
-- `PUT /api/v1/users/:id` — update user (requires JWT)
-- `DELETE /api/v1/users/:id` — delete user (requires JWT)
+Rotas (routes) – responsável:
 
-## Group/Authors
-- Aluno A — setup + models
-- Aluno B — controllers + auth
-- Aluno C — tests + docs
+Autenticação JWT – responsável:
 
-## Issues (example backlog)
-1. Implement pagination for GET /users
-2. Add role-based authorization
-3. Add rate limiter
-4. Improve test coverage for error cases
+Banco de Dados / Atlas – responsável:
+
+Swagger – responsável:
+
+Testes / Insomnia – responsável:
+
+README / Documentação – responsável:
+
+📦 Tecnologias Utilizadas
+
+Node.js
+
+Express
+
+Mongoose
+
+MongoDB Atlas
+
+JWT
+
+bcrypt
+
+Swagger UI
+
+dotenv
+
+Nodemon
+
+📁 Estrutura do Projeto
+├── config/
+│   └── db.js
+├── controllers/
+├── middlewares/
+├── models/
+├── routes/
+├── swagger/
+│   └── swagger.json
+├── server.js
+├── package.json
+├── .env.example
+
+🛠️ Instalação e Execução
+1️⃣ Clonar o projeto
+git clone https://github.com/LuciusAAM/trabalho-cbackend.git
+
+
+2️⃣ Instalar dependências
+npm install express mongoose bcrypt jsonwebtoken express-validator cors dotenv
+npm install --save-dev jest supertest nodemon
+npm install swagger-ui-express yamljs
+
+
+🔧 Configuração do Ambiente
+
+Crie um arquivo .env na raiz do projeto.
+Use o .env.example como base:
+
+# ===== MONGODB =====
+MONGODB_USER=
+MONGODB_PSWD=
+MONGODB_HOST=
+MONGO_URI=
+
+# ===== JWT =====
+JWT_SECRET=
+JWT_EXPIRES=
+
+
+3️⃣ Configurar MongoDB Atlas
+
+Criar cluster free
+
+Criar usuário para o banco
+
+Liberar acesso para o IP atual ou 0.0.0.0/0
+
+Montar a URI:
+
+MONGO_URI=mongodb+srv://USER:SENHA@HOST/trabalhodb?retryWrites=true&w=majority
+
+
+
+▶️ Rodar o servidor
+
+Modo desenvolvimento:
+
+npm run dev
+
+
+Modo produção:
+
+node server.js
+
+📚 Documentação da API
+
+Acesse:
+
+👉 http://localhost:3000/api-docs
+
+📌 Exemplos de Uso (Requests)
+🔐 Login
+
+POST /auth/login
+
+{
+  "email": "teste@teste.com",
+  "senha": "123456"
+}
+
+👤 Criar usuário
+
+POST /auth/register
+
+{
+  "nome": "João",
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+
+🔒 Buscar usuários (rota protegida)
+
+GET /usuarios
+
+Header:
+
+Authorization: Bearer SEU_TOKEN_AQUI
+
+🧪 Como Rodar os Testes
+
+Se você não tem testes automatizados, coloque isso:
+
+👉 Este projeto não possui testes automatizados.
+Todos os testes foram realizados manualmente via Insomnia/Postman.
+
+Se quiser simular:
+
+npm test
+
+
+
+📄 Licença
+
+Uso livre para fins educacionais.
