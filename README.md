@@ -42,6 +42,7 @@ Nodemon
 ├── .env.example
 
 🛠️ Instalação e Execução
+
 1️⃣ Clonar o projeto
 git clone https://github.com/LuciusAAM/trabalho-cbackend.git
 
