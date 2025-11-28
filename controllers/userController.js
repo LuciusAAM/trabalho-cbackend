@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { validationResult } = require("express-validator");
 const User = require("../models/userModel");
 
+
 const gerarToken = (user) => {
   const payload = {
     id: user._id,
@@ -130,3 +131,5 @@ exports.remover = async (req, res, next) => {
     next(err);
   }
 };
+
+

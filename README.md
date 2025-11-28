@@ -6,23 +6,8 @@ O objetivo é servir como base didática para estudos de backend.
 👥 Integrantes do Grupo
 Lucius Alves de Assis Marques - 2324290093 - Responsável pelo direcionamento, como Routes server e validators, também na correção des testes
 Caio Víctor de Almeida Aleixo - 2324290077 - Criação dos testes e auxiliação na correção
-Diego Alves - ~matricula~ - Criação dos middlewares, controllers e models, auxílo na produção de tests
+Diego Rodrigues Alves - 2324290066 - Criação dos middlewares, controllers e models, auxílo na produção de tests
 
-📌 Divisão de Tarefas
-
-Modelos (models) – responsável:
-
-Rotas (routes) – responsável:
-
-Autenticação JWT – responsável:
-
-Banco de Dados / Atlas – responsável:
-
-Swagger – responsável:
-
-Testes / Insomnia – responsável:
-
-README / Documentação – responsável:
 
 📦 Tecnologias Utilizadas
 
@@ -46,7 +31,6 @@ Nodemon
 
 📁 Estrutura do Projeto
 ├── config/
-│   └── db.js
 ├── controllers/
 ├── middlewares/
 ├── models/
@@ -105,9 +89,10 @@ Modo desenvolvimento:
 npm run dev
 
 
-Modo produção:
+▶️ Para rodar os tests:
 
-node server.js
+npm test
+
 
 📚 Documentação da API
 
@@ -143,16 +128,9 @@ Header:
 
 Authorization: Bearer SEU_TOKEN_AQUI
 
-🧪 Como Rodar os Testes
 
-Se você não tem testes automatizados, coloque isso:
 
-👉 Este projeto não possui testes automatizados.
-Todos os testes foram realizados manualmente via Insomnia/Postman.
 
-Se quiser simular:
-
-npm test
 
 
 
